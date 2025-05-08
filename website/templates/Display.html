@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Kết Quả Dự Đoán Cây Trồng{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-info mb-4">Thông Tin Đầu Vào</h2>
+    <div class="table-responsive">
+        <table class="table table-dark table-bordered">
+            <thead>
+                <tr>
+                    <th>Nitrogen (kg/ha)</th>
+                    <th>Phosphorus (kg/ha)</th>
+                    <th>Potassium (kg/ha)</th>
+                    <th>Humidity (%)</th>
+                    <th>Temperature (°C)</th>
+                    <th>Rainfall (mm)</th>
+                    <th>pH</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% for i in values %}
+                    <td>{{ i }}</td>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-dark table-bordered">
+            <thead>
+                <tr>
+                    <th>Nitrogen Level</th>
+                    <th>Phosphorus Level</th>
+                    <th>Potassium Level</th>
+                    <th>Humidity Level</th>
+                    <th>Temperature Level</th>
+                    <th>Rainfall Level</th>
+                    <th>pH Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% for i in cont %}
+                    <td>{{ i }}</td>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <h2 class="text-info mt-5">Cây Trồng Được Đề Xuất: > 50%</h2>
+    {% if probabilities %}
+        <h3>Điểm Số Phù Hợp (Suitability Scores) Cho Tất Cả Cây Trồng:</h3>
+        <div class="table-responsive">
+            <table class="table table-dark table-bordered">
+                <thead>
+                    <tr>
+                        <th>Label</th>
+                        <th>Tên Cây Trồng</th>
+                        <th>Điểm Số (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in probabilities %}
+                    <tr>
+                        <td>{{ item.label }}</td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ "%.2f"|format(item.probability) }}%</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <p><strong>Tổng điểm số:</strong> {{ "%.2f"|format(probabilities|sum(attribute='probability')) }}%</p>
+    {% endif %}
+    <p><a href="{{ url_for('home') }}" class="btn btn-primary">Quay lại Trang chủ</a></p>
+</div>
+{% endblock %}

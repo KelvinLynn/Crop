@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Thông Tin Cây Trồng{% endblock %}
+
+{% block content %}
+
+<!-- Thông tin chi tiết về cây trồng được chọn -->
+<h1>{{ namer }}</h1>
+<img src="{{ imager }}" alt="{{ namer }}" width="500" height="400">
+<p>{{ descriptionr }}</p>
+
+<br>
+<br>
+<p><strong>Các loại giống cây có liên quan:</strong></p>
+<!-- Danh sách các loại giống cây có liên quan đến cái cây đang xem -->
+{% for item in listr %}
+    <div class="card" style="width: 18rem;">
+        <img src="{{ item.image }}" class="card-img-top" alt="{{ item.name }}" width="150" height="150">
+        <div class="card-body">
+            <h5 class="card-title">{{ item.name }}</h5>
+            <a href="{{ url_for('detail', id=item.id) }}" class="btn btn-primary">Xem chi tiết</a>
+        </div>
+    </div>
+{% endfor %}
+<p><a href="{{ url_for('index') }}">Quay lại Trang chủ</a></p>
+{% endblock %}
