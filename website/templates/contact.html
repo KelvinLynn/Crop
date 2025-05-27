@@ -7,10 +7,7 @@
     <h2>Liên Hệ</h2>
     <p>Điền vào biểu mẫu bên dưới để gửi tin nhắn cho chúng tôi.</p>
 
-    <form id="contactForm" action="process_contact.php" method="POST">
-        <div style="display: none;">
-            <input type="text" id="id" name="id" readonly>
-        </div>
+    <form id="contactForm" action="{{ url_for('contact') }}" method="POST">
         <div class="mb-3">
             <input
                 class="form-control"
@@ -47,9 +44,6 @@
                 style="height: 121px; resize: vertical;"
             ></textarea>
         </div>
-        <div style="display: none;">
-            <input type="datetime-local" id="created_at" name="created_at" readonly>
-        </div>
         <div class="d-flex justify-content-between">
             <button
                 type="submit"
@@ -65,6 +59,5 @@
             </button>
         </div>
     </form>
-    <p id="status" class="text-center mt-4" style="display: none;"></p>
 </div>
 {% endblock %}

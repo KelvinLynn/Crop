@@ -27,7 +27,7 @@ login_manager.login_view = 'index'
 db_config = {
     'host': 'localhost',
     'user': 'root',
-    'password': '',  # Mặc định XAMPP để trống
+    'password': '',  
     'database': 'crops_db'
 }
 

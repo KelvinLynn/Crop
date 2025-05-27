@@ -58,3 +58,8 @@ traitlets==5.1.1
 urllib3==1.26.9
 wcwidth==0.2.5
 Werkzeug==2.0.3
+flask-login==0.6.3
+xgboost==1.7.6
+mysql-connector-python==8.0.33
+bcrypt==4.0.1
+seaborn==0.12.2
