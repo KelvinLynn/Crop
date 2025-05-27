@@ -1,0 +1,247 @@
+/* Tổng thể */
+body {
+    background: linear-gradient(to bottom, #E8F5E9, #C8E6C9);
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #4CAF50;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand, .nav-link {
+    color: #333 !important;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #A5D6A7 !important;
+    transition: color 0.3s ease;
+}
+
+/* Container chính */
+.container {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container1 {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px; /* Thu nhỏ từ 800px xuống 600px */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Container for login and registration pages */
+.container2 {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin: 40px auto;
+    max-width: 380px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.container2:hover {
+    transform: translateY(-2px);
+}
+
+/* Form heading */
+.container2 h1 {
+    font-size: 1.6rem;
+    color: #2E7D32;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Danh mục cây trồng */
+.crop-list {
+    background-color: #F1F8E9;
+    padding: 20px;
+    border-radius: 8px;
+    min-height: 400px;
+    border: 1px solid #A5D6A7;
+}
+
+.crop-list a {
+    color: #2E7D32;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.crop-list a.active {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.crop-list a:hover {
+    background-color: #A5D6A7;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+/* Thông tin chi tiết */
+.crop-info {
+    background-color: #F1F8E9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #A5D6A7;
+    min-height: 400px;
+}
+
+.crop-info img {
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Danh sách giống cây hiển thị ngang */
+.varieties {
+    gap: 20px;
+}
+
+.variety-item {
+    flex: 0 0 calc(33.333% - 20px);
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.variety-item:hover {
+    transform: translateY(-5px);
+}
+
+.variety-item h4 {
+    font-size: 1.2rem;
+    color: #2E7D32;
+    margin-bottom: 10px;
+}
+
+.variety-item img {
+    border-radius: 8px;
+    max-height: 150px;
+}
+
+/* Form */
+.form-control {
+    border-color: #A5D6A7;
+}
+
+.form-control:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #2E7D32;
+    border-color: #2E7D32;
+}
+
+/* Card */
+.card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    border-radius: 8px 8px 0 0;
+}
+
+/* Table */
+.table-dark {
+    background-color: #F1F8E9;
+    color: #333;
+    border-color: #A5D6A7;
+}
+
+.table-dark th {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+/* Footer */
+.footer {
+    position: relative;
+    color: #333; /* Thay đổi màu chữ thành đen để tương phản */
+}
+
+.footer-top {
+    background: linear-gradient(to bottom, #4CAF50, #2E7D32);
+    padding: 30px 0;
+}
+
+.footer-top .text-center {
+    text-align: center;
+}
+
+.footer-top h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333; /* Đảm bảo tiêu đề cũng có màu đen */
+}
+
+.footer-top p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #333; /* Đảm bảo đoạn văn có màu đen */
+}
+
+.btn-warning {
+    background-color: #ff9800;
+    border-color: #ff9800;
+    padding: 8px 20px;
+    font-weight: bold;
+    color: #fff; /* Đảm bảo chữ trên nút là trắng */
+}
+
+.btn-warning:hover {
+    background-color: #f57c00;
+    border-color: #f57c00;
+}
+
+.footer-bottom {
+    background-color: #2E7D32;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #fff; /* Giữ màu trắng cho phần bottom */
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+    .variety-item {
+        flex: 0 0 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 576px) {
+    .variety-item {
+        flex: 0 0 100%;
+    }
+}

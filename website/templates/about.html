@@ -1,19 +1,25 @@
 {% extends 'base.html' %}
 
-{% block title %}About Us{% endblock %}
+{% block title %}Giới Thiệu{% endblock %}
 
 {% block content %}
-    <p>Chào mừng đến với hệ thống dự đoán cây trồng!
-
-        Hệ thống "Dự đoán cây trồng phù hợp bằng AI dựa trên dữ liệu đất" được phát triển bởi sinh viên Phạm Đức Trung, dưới sự hướng dẫn của ThS. Nguyễn Thanh Truyền tại Trường Đại học Tài nguyên và Môi trường TP.HCM. Đề tài nhằm ứng dụng trí tuệ nhân tạo (AI) và học máy để hỗ trợ nông dân tối ưu hóa việc lựa chọn cây trồng dựa trên các điều kiện đất đai và môi trường, bao gồm đạm (N), lân (P), kali (K), nhiệt độ, độ ẩm, pH và lượng mưa.
-        
-        Sử dụng bộ dữ liệu Crop Recommendation Dataset từ Kaggle với 2200 mẫu và 22 loại cây trồng, hệ thống tích hợp các thuật toán tiên tiến như K-Nearest Neighbors (KNN), Logistic Regression và XGBoost, được tối ưu hóa bằng GridSearchCV. Kết quả là một công cụ thực tiễn, cho phép dự đoán cây trồng phù hợp thông qua giao diện trực quan, góp phần nâng cao năng suất nông nghiệp và thúc đẩy phát triển bền vững.
-        
-        Chúng tôi hy vọng hệ thống này sẽ mang lại giá trị thiết thực cho cộng đồng nông nghiệp, đồng thời mở ra hướng đi mới cho ứng dụng công nghệ trong lĩnh vực này. Mọi ý kiến đóng góp xin vui lòng liên hệ qua giảng viên hướng dẫn hoặc sinh viên thực hiện.
-        
-        Thông tin liên hệ:
-        
-        Sinh viên: Phạm Đức Trung (Mã số: 1050080288, Lớp: 10_ĐH_CNPM3)
-        Giảng viên hướng dẫn: ThS. Nguyễn Thanh Truyền
-        Trường: Đại học Tài nguyên và Môi trường TP.HCM</p>
+    <div class="container">
+        <div class="about-section">
+            <h2>Giới Thiệu Về Hệ Thống</h2>
+            <p>
+                Chào mừng bạn đến với Hệ Thống Dự Đoán Cây Trồng! Chúng tôi tự hào mang đến một giải pháp công nghệ hiện đại, giúp nông dân lựa chọn loại cây trồng phù hợp nhất dựa(On điều kiện đất đai và môi trường. Sử dụng trí tuệ nhân tạo (AI) và học máy, hệ thống phân tích các yếu tố như đạm, lân, kali, nhiệt độ, độ ẩm, pH, và lượng mưa để đưa ra gợi ý tối ưu.
+            </p>
+            <p>
+                Dự án được phát triển bởi sinh viên Phạm Đức Trung, dưới sự hướng dẫn của ThS. Nguyễn Thanh Truyền tại Trường Đại học Tài nguyên và Môi trường TP.HCM. Với mục tiêu hỗ trợ nông nghiệp bền vững, chúng tôi hy vọng hệ thống này sẽ mang lại giá trị thiết thực cho cộng đồng.
+            </p>
+        </div>
+        <div class="contact-info-section">
+            <h3>Thông Tin Liên Hệ</h3>
+            <p>
+                Sinh viên: Phạm Đức Trung (Mã số: 1050080288, Lớp: 10_ĐH_CNPM3)<br>
+                Giảng viên hướng dẫn: ThS. Nguyễn Thanh Truyền<br>
+                Trường: Đại học Tài nguyên và Môi trường TP.HCM
+            </p>
+        </div>
+    </div>
 {% endblock %}

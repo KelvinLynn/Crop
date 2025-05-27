@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Liên Hệ{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Liên Hệ</h2>
+    <p>Điền vào biểu mẫu bên dưới để gửi tin nhắn cho chúng tôi.</p>
+
+    <form id="contactForm" action="process_contact.php" method="POST">
+        <div style="display: none;">
+            <input type="text" id="id" name="id" readonly>
+        </div>
+        <div class="mb-3">
+            <input
+                class="form-control"
+                type="text"
+                placeholder="Tên"
+                name="name"
+                required
+            />
+        </div>
+        <div class="mb-3">
+            <input
+                class="form-control"
+                type="email"
+                placeholder="Email"
+                name="email"
+                required
+            />
+        </div>
+        <div class="mb-3">
+            <input
+                class="form-control"
+                type="tel"
+                placeholder="Số Điện Thoại (VD: 0923505964)"
+                name="phone"
+                pattern="[0-9]{10,11}"
+            />
+        </div>
+        <div class="mb-3">
+            <textarea
+                class="form-control"
+                placeholder="Nhập nội dung liên hệ tại đây..."
+                name="message"
+                required
+                style="height: 121px; resize: vertical;"
+            ></textarea>
+        </div>
+        <div style="display: none;">
+            <input type="datetime-local" id="created_at" name="created_at" readonly>
+        </div>
+        <div class="d-flex justify-content-between">
+            <button
+                type="submit"
+                class="btn btn-primary"
+            >
+                Gửi liên hệ ➤
+            </button>
+            <button
+                type="reset"
+                class="btn btn-secondary"
+            >
+                Nhập lại
+            </button>
+        </div>
+    </form>
+    <p id="status" class="text-center mt-4" style="display: none;"></p>
+</div>
+{% endblock %}

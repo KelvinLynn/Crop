@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #E8F5E9, #C8E6C9);
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+        }
+        .sidebar {
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #4CAF50;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            color: #fff;
+            padding: 15px 20px;
+            text-decoration: none;
+            display: block;
+        }
+        .sidebar a:hover {
+            background-color: #2E7D32;
+        }
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+        .table-container {
+            margin-top: 20px;
+        }
+        .alert {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h4 class="text-center text-white mb-4">Admin Panel</h4>
+        <a href="#crops">Crops</a>
+        <a href="#crop-varieties">Crop Varieties</a>
+        <a href="#users">Users</a>
+        <a href="#contacts">Contacts</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Crops Section -->
+        <div id="crops" class="table-container">
+            <h2>Crops Management</h2>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ 'success' if category == 'success' else 'danger' }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>N</th>
+                        <th>P</th>
+                        <th>K</th>
+                        <th>Temperature</th>
+                        <th>Humidity</th>
+                        <th>pH</th>
+                        <th>Rainfall</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for crop in crops %}
+                    <tr>
+                        <td>{{ crop.id }}</td>
+                        <td>{{ crop.name }}</td>
+                        <td>{{ crop.N }}</td>
+                        <td>{{ crop.P }}</td>
+                        <td>{{ crop.K }}</td>
+                        <td>{{ crop.temperature }}</td>
+                        <td>{{ crop.humidity }}</td>
+                        <td>{{ crop.ph }}</td>
+                        <td>{{ crop.rainfall }}</td>
+                        <td>{{ crop.image }}</td>
+                        <td>
+                            <a href="{{ url_for('edit_crop', id=crop.id) }}" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="{{ url_for('delete_crop', id=crop.id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc muốn xóa?')">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Crop Varieties Section -->
+        <div id="crop-varieties" class="table-container">
+            <h2>Crop Varieties Management</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Type ID</th>
+                        <th>Image</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for variety in crop_varieties %}
+                    <tr>
+                        <td>{{ variety.id }}</td>
+                        <td>{{ variety.name }}</td>
+                        <td>{{ variety.type_id }}</td>
+                        <td>{{ variety.image }}</td>
+                        <td>{{ variety.description }}</td>
+                        <td>
+                            <a href="{{ url_for('edit_variety', id=variety.id) }}" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="{{ url_for('delete_variety', id=variety.id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc muốn xóa?')">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Users Section -->
+        <div id="users" class="table-container">
+            <h2>Users Management</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>
+                            <a href="{{ url_for('edit_user', id=user.id) }}" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="{{ url_for('delete_user', id=user.id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc muốn xóa?')">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Contacts Section -->
+        <div id="contacts" class="table-container">
+            <h2>Contacts Management</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Message</th>
+                        <th>Created At</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for contact in contacts %}
+                    <tr>
+                        <td>{{ contact.id }}</td>
+                        <td>{{ contact.name }}</td>
+                        <td>{{ contact.email }}</td>
+                        <td>{{ contact.phone }}</td>
+                        <td>{{ contact.message }}</td>
+                        <td>{{ contact.created_at }}</td>
+                        <td>
+                            <a href="{{ url_for('edit_contact', id=contact.id) }}" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="{{ url_for('delete_contact', id=contact.id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc muốn xóa?')">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
